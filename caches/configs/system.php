@@ -21,13 +21,13 @@ return array(
 
 //附件相关配置
 'upload_path' => PHPCMS_PATH.'uploadfile/',
-'upload_url' => 'http://pcms.cn/uploadfile/', //附件路径
+'upload_url' => 'http://39.106.34.31/uploadfile/', //附件路径
 'attachment_stat' => '1',//是否记录附件使用状态 0 统计 1 统计， 注意: 本功能会加重服务器负担
 
-'js_path' => 'http://pcms.cn/statics/js/', //CDN JS
-'css_path' => 'http://pcms.cn/statics/css/', //CDN CSS
-'img_path' => 'http://pcms.cn/statics/images/', //CDN img
-'app_path' => 'http://pcms.cn/',//动态域名配置地址
+'js_path' => 'http://39.106.34.31/statics/js/', //CDN JS
+'css_path' => 'http://39.106.34.31/statics/css/', //CDN CSS
+'img_path' => 'http://39.106.34.31/statics/images/', //CDN img
+'app_path' => 'http://39.106.34.31/',//动态域名配置地址
 
 'charset' => 'utf-8', //网站字符集
 'timezone' => 'Etc/GMT-8', //网站时区（只对php 5.1以上版本有效），Etc/GMT-8 实际表示的是 GMT+8
