@@ -1,0 +1,133 @@
+{template "content","header"}
+    <!--位置-->
+    <div class="lx_box">
+        <div class="lx_title fw-b">您的位置：<a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)}</div>
+    </div>
+    <!--课程辅导-->
+    <div class="kc_wrap">
+        <div class="f18 tc about_title">{$CATEGORYS[$catid][catname]}</div>
+        <div class="kc_t">
+            <ul class=" clearfix">
+                {pc:content action="category" catid="$catid" num="25" siteid="$siteid" order="listorder ASC"}
+                {php $i=0;}
+                    {loop $data $r}
+                    {php $i++}
+                        {if $i ==1 }
+                        <li class="active">{$r[catname]}</li>
+                        {else}
+                         <li>{$r[catname]}</li>
+                        {/if}
+                    {/loop}
+                {/pc}
+            </ul>
+        </div>
+        <ul class="kc_table">
+            <li class="active">
+                <table>
+                {pc:content action="lists" catid="73" num="12" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                    {php $i=0;}
+                    <tr>
+                    {loop $data $r}
+                    
+                    {php $i++}
+                        {if $i%3 == 0}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th></tr><tr>
+                        {else}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th>
+                        {/if}
+                    {/loop}
+                    </tr>
+                {/pc}
+                </table>
+
+                    <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=73">更多</a></div>
+            </li>
+            <li>
+            <table>
+                {pc:content action="lists" catid="57" num="12" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                    {php $i=0;}
+                    <tr>
+                    {loop $data $r}
+                    
+                    {php $i++}
+                        {if $i%3 == 0}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th></tr><tr>
+                        {else}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th>
+                        {/if}
+                    {/loop}
+                    </tr>
+                {/pc}
+                </table>
+
+                    <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=57">更多</a></div>
+            </li>
+            <li>
+            <table>
+                {pc:content action="lists" catid="58" num="12" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                    {php $i=0;}
+                    <tr>
+                    {loop $data $r}
+                    
+                    {php $i++}
+                        {if $i%3 == 0}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th></tr><tr>
+                        {else}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th>
+                        {/if}
+                    {/loop}
+                    </tr>
+                {/pc}
+                </table>
+
+                    <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=58">更多</a></div>
+            </li>
+            <li>
+            <table>
+                {pc:content action="lists" catid="59" num="12" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                    {php $i=0;}
+                    <tr>
+                    {loop $data $r}
+                    
+                    {php $i++}
+                        {if $i%3 == 0}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th></tr><tr>
+                        {else}
+                            <th><a href="{$r[url]}">{$r[title]}</a></th>
+                        {/if}
+                    {/loop}
+                    </tr>
+                {/pc}
+                </table>
+
+                    <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=59">更多</a></div>
+            </li>
+        </ul>
+    </div>
+
+    <!--帮助过的小伙伴-->
+    <div class="kc_wrap kc_wrap1">
+        <div class="f18 tc about_title">我们帮助过的小伙伴</div>
+        <ul class="kc_fdwrap clearfix">
+            {pc:content action="lists" catid="53" num="7" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                
+                {loop $data $r}
+                <li>
+                    <div class="kc_fimg"><img src="{$r[thumb]}"></div>
+                    <p><a href="{$r[url]}">{$r[title]}</a></p>
+                </li>
+                {/loop}
+                
+            {/pc}
+
+        </ul>
+    </div>
+    <script type="text/javascript" src="{JS_PATH}index_1.js"></script>
+    <script>
+        $(".kc_t ul li").click(function(){
+            var i = $(this).index();
+            $(this).addClass("active").siblings("li").removeClass("active");
+            $(".kc_table li").eq(i).addClass("active").siblings("li").removeClass("active")
+        })
+    </script>
+{template "content","footer"}

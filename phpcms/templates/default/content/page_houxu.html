@@ -1,0 +1,118 @@
+{template "content","header"}
+    <!--位置-->
+    <div class="lx_box">
+        <div class="lx_title fw-b">您的位置：<a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)}</div>
+    </div>
+
+<style>
+.lx_htitle{ width:880px; margin:0 auto; }
+.lx_hbox{ padding:30px 77px; margin:72px 0 0 0; }
+.lx_hbox li{ position: relative; float: left; cursor: pointer; }
+.lx_hbox li img{ width:177px; height: 177px;border-radius: 200px; }
+.lx_hbox li.lx_hdian { cursor: default; }
+.lx_hbox li.lx_hdian img{ width: 114px; height: auto; margin-top: 96px; }
+.lx_hbox li:nth-child(1){ margin-left: 183px; }
+.lx_hbox li:nth-child(5){ margin-right: 100px; }
+.lx_hbox li:nth-child(6){ margin-left : 38px; }
+.lx_hbox li div{ font-size: 26px; font-weight: 700px; position: absolute;left:50%;top:50%; transform: translate(-50%,-50%);width: 100%;text-align: center;color:#fff;z-index: 1 }
+.lx_hbox li:nth-child(1){ margin-bottom: 40px; }
+.lx_hbox li:nth-child(2){ margin-bottom: 40px; }
+.lx_hbox li:nth-child(3){ margin-bottom: 40px; }
+.lx_hbox li:nth-child(4){ margin-bottom: 40px; }
+.lx_hbox li:nth-child(5){ margin-bottom: 40px; }
+.lx_hbox li .lx_hr{opacity: 0; position: absolute;left: 50%;top:50%;transform: translate(-50%,-50%);}
+.lx_hbox li.lx_ho:hover .lx_hr{opacity: 1}
+
+.lx_ho:hover{}
+
+</style>
+    <div class="lx_htitle">
+        <img src="{IMG_PATH}lx_img1.png">
+    </div>
+    <ul class="lx_hbox clearfix">
+        <li class="lx_ho">
+            <div>实地访校</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_hdian">
+            <img src="{IMG_PATH}lx8.png">
+        </li>
+        <li class="lx_ho">
+            <div>接送服务</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_hdian">
+            <img src="{IMG_PATH}lx8.png">
+        </li>
+        <li class="lx_ho">
+            <div>住宿服务</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_ho">
+            <div>监护服务</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_hdian">
+            <img src="{IMG_PATH}lx8.png">
+        </li>
+        <li class="lx_ho">
+            <div>海外课程<br>辅导</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_hdian">
+            <img src="{IMG_PATH}lx8.png">
+        </li>
+        <li class="lx_ho">
+            <div>毕业论文<br>修改辅导</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+        <li class="lx_hdian">
+            <img src="{IMG_PATH}lx8.png">
+        </li>
+        <li class="lx_ho">
+            <div>海外置业</div>
+            <img src="{IMG_PATH}lx1.png">
+            <img class="lx_hr" src="{IMG_PATH}lx11.png">
+        </li>
+    </ul>
+<script type="text/javascript" src="{JS_PATH}index_1.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $(".video_btn").click(function(){
+            $(".video_btn").hide();
+            $("#video")[0].play();
+        })
+        $(".mx_title .mx_t").click(function(){
+            if(!$(this).hasClass("active")){
+                $(this).addClass("active");
+                $(this).siblings(".mx_t").removeClass("active");
+                $(".mx_schools .active").removeClass("active").siblings(".mx_school").addClass("active");;
+                
+            }
+        })
+
+
+
+        var swiper = new Swiper('.swiper-container1', {
+          slidesPerView: 5,
+          spaceBetween: 50,
+          // init: false,
+          // pagination: {
+          //   el: '.swiper-pagination',
+          //   clickable: true,
+          // },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+
+    })
+    </script>
+{template "content","footer"}

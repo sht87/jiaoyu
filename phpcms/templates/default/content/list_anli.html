@@ -1,0 +1,167 @@
+
+{template "content","header"}
+    <!--成功案例-->
+    <div class="lx_box">
+        <div class="lx_title fw-b">您的位置：成功案例</div>
+        <div class="swiper-container swiper-container1 in_swiper in_swiper1 rel">
+            <div class="clearfix lx_hover">
+              <div class="fl pointer lx_d1">
+                    <div class="lx_text" data-index='0'>
+                        <div class="tc f14 fff rel"><p>通过我们的努力有这<br>些小伙伴顺利拿到<br><span class="fw-b f16">offer</span><p></div>
+                    </div>
+              </div>
+              <div class="fl pointer">
+                    <img class="lx_icond" src="{IMG_PATH}icon_dian.jpg">
+              </div>
+              <div class="fl pointer lx_d2">
+                    <div class="lx_text" data-index='1'>
+                        <div class="tc f14 fff rel"><p>经过我们的<br><span class="f16 fw-b">海外课程辅导</span><br>这些小伙伴考试<br>顺利通过<p></div>
+                    </div>
+              </div>
+              <div class="fl pointer">
+                    <img class="lx_icond" src="{IMG_PATH}icon_dian.jpg" width="100">
+              </div>
+              <div class="fl pointer lx_d3">
+                    <div class="lx_text" data-index='2'>
+                        <div class="tc f14 fff rel"><p>通过我们的努力<br>有这些小朋友得到<br>了满意的<br><span class="f16 fw-b">监护服务</span><p></div>
+                    </div>
+              </div>
+
+            </div>
+            <!-- Add Pagination -->
+            <!-- <div class="swiper-pagination"></div> -->
+            <!-- Add Pagination -->
+<!--             <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+
+        </div>
+    </div>
+    <!--列表-->
+    <div class="lx_content">
+        <ul class="lx_list active">
+            {pc:content action="lists" catid="78" num="5" siteid="$siteid" moreinfo="1" order="id DESC"}
+            {loop $data $r}
+            <li class="clearfix">
+                <div class="clearfix">
+                    <img class="fl lx_limg" src="{$r[thumb]}">
+                    <div class="fl lx_ltext">
+                            <div class="fl"><span class="fw-b f18">{$r[title]}</span>&nbsp&nbsp({$r[c_en_name]})</div>
+                            <span class="fr">{$r[c_num]}人</span>
+                    </div>
+                    <a class="fr lx_llink" href="javascript:;">查看详情</a>
+                </div>
+                <!--学生信息-->       
+                <ul class="lx_xs lx_xsbox clearfix">
+                {pc:get sql="SELECT * FROM p_chenggong_data WHERE tuijian='1'" moreinfo="1" num="1" order by id DESC return="data"}
+                {loop $data $val}
+                    {$val[content]}
+                {/loop}
+                {/pc}
+                </ul>
+            </li>
+            {/loop}
+            {/pc}
+        </ul>
+        <ul class="lx_list">
+            {pc:content action="lists" catid="79" num="5" siteid="$siteid" moreinfo="1" order="id DESC"}
+            {loop $data $r}
+            <li class="clearfix">
+                <div class="clearfix">
+                    <img class="fl lx_limg" src="{$r[thumb]}">
+                    <div class="fl lx_ltext">
+                            <div class="fl"><span class="fw-b f18">{$r[title]}</span>&nbsp&nbsp({$r[c_en_name]})</div>
+                            <span class="fr">{$r[c_num]}人</span>
+                    </div>
+                    <a class="fr lx_llink" href="javascript:;">查看详情</a>
+                </div>
+                <!--学生信息-->       
+                <ul class="lx_xs lx_xsbox clearfix">
+                {pc:get sql="SELECT * FROM p_chenggong_data WHERE tuijian='1'" moreinfo="1" num="1" order by id DESC return="data"}
+                {loop $data $val}
+                    {$val[content]}
+                {/loop}
+                {/pc}
+                </ul>
+            </li>
+            {/loop}
+            {/pc}
+        </ul>
+        <ul class="lx_list">
+            {pc:content action="lists" catid="80" num="5" siteid="$siteid" moreinfo="1" order="id DESC"}
+            {loop $data $r}
+            <li class="clearfix">
+                <div class="clearfix">
+                    <img class="fl lx_limg" src="{$r[thumb]}">
+                    <div class="fl lx_ltext">
+                            <div class="fl"><span class="fw-b f18">{$r[title]}</span>&nbsp&nbsp({$r[c_en_name]})</div>
+                            <span class="fr">{$r[c_num]}人</span>
+                    </div>
+                    <a class="fr lx_llink" href="javascript:;">查看详情</a>
+                </div>
+                <!--学生信息-->       
+                <ul class="lx_xs lx_xsbox clearfix">
+                {pc:get sql="SELECT * FROM p_chenggong_data WHERE tuijian='1'" moreinfo="1" num="1" order by id DESC return="data"}
+                {loop $data $val}
+                    {$val[content]}
+                {/loop}
+                {/pc}
+                </ul>
+            </li>
+            {/loop}
+            {/pc}
+        </ul>
+    </div>
+
+    <!--footer-->
+    {template "content","footer"}
+</div>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/swiper/swiper.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $(".video_btn").click(function(){
+            $(".video_btn").hide();
+            $("#video")[0].play();
+        })
+        $(".mx_title .mx_t").click(function(){
+            if(!$(this).hasClass("active")){
+                $(this).addClass("active");
+                $(this).siblings(".mx_t").removeClass("active");
+                $(".mx_schools .active").removeClass("active").siblings(".mx_school").addClass("active");;
+                
+            }
+        })
+        $(".lx_llink").click(function(){
+            if($(this).hasClass("active")){
+                $(this).removeClass("active");
+                $(this).parent("div").siblings(".lx_xsbox").hide();
+            }else{
+                $(this).addClass("active");
+                $(this).parent("div").siblings(".lx_xsbox").show();
+            }
+        })
+
+        $(".lx_text").click(function(){
+            var i = $(this).attr('data-index');
+            $(".lx_content >ul").eq(i).show().siblings("ul").hide();
+        })
+
+        // var swiper = new Swiper('.swiper-container1', {
+        //   slidesPerView: 5,
+        //   spaceBetween: 50,
+        //   // init: false,
+        //   // pagination: {
+        //   //   el: '.swiper-pagination',
+        //   //   clickable: true,
+        //   // },
+        //   navigation: {
+        //     nextEl: '.swiper-button-next',
+        //     prevEl: '.swiper-button-prev',
+        //   },
+        // });
+
+    })
+    </script>
+</body>
+    
+</html>

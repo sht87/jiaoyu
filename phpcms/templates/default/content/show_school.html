@@ -1,0 +1,28 @@
+{template "content","header"}
+	<!--新闻详情-->
+	<div class="nd_wrap">
+		<div class="nd_title f24 tc">{$title}</div>
+		<div class="nd_time tc ">所在国家：{$suoguojia}</div>
+		<div class="nd_time tc ">所在地区：{$chengshi}</div>
+		<div class="nd_time tc ">所在城市：{$diqu}</div>
+		<div class="nd_time tc ">建立校年份：{$nianfen}</div>
+		<div class="nd_time tc ">在校学生：{$zaixiao}</div>
+		<div class="nd_time tc ">学校性质：{$zaixiao}</div>
+		<div class="nd_time tc ">学校简介：{$description}</div>
+		<div class="nd_text">
+		<script language='javascript' src='{APP_PATH}index.php?m=formguide&c=index&a=show&formid=37&action=js&siteid=1'></script>
+		{$content}
+
+                {pc:content action="lists" catid="65" num="5"}
+                {loop $data $r}
+                    <li class="clearfix">
+                        <div class="fl tover"><a href="{$r[url]}">{$r[title]}</a></div>
+                    </li>
+                {/loop}
+                {/pc}
+
+
+		</div>
+	</div>
+</div>
+{template "content","footer"}

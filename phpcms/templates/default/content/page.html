@@ -1,0 +1,35 @@
+{template "content","header"}
+    <!--位置-->
+    <div class="lx_box">
+        <div class="lx_title fw-b">您的位置：<a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)}</div>
+    </div>
+
+    <!--联系我们-->
+{$content}
+    <script type="text/javascript" src="{JS_PATH}index_1.js"></script>
+    <script type="text/javascript">
+            var data = {};
+            data.lat = 39.9076900000;
+            data.lng = 116.4378900000;
+
+    function initMap() {
+        var uluru = data;
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: uluru,
+            zoomControl:true, //缩放
+            mapTypeControl:false, //地图卫星
+            streetViewControl:false, //小人
+        });
+        var marker = new google.maps.Marker({
+            position: uluru,
+            map: map,
+            icon: data.icon,
+        });
+    }
+    </script>
+    <script src="http://maps.google.cn/maps/api/js?key=AIzaSyAKSxouU5uM1xpZH-gG6BmgGwIN2RmP9qI&callback=initMap&language=zh-cn"></script>
+    <script>
+
+    </script>
+{template "content","footer"}

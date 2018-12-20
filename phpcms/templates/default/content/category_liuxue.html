@@ -1,0 +1,84 @@
+{template "content","header"}
+    <!--位置-->
+    <div class="lx_box">
+        <div class="lx_title fw-b">您的位置：<a href="{siteurl($siteid)}">首页</a><span> > </span>{catpos($catid)}</div>
+    </div>
+    <!--大学留学-->
+    <div class="kc_wrap">
+        <div class="f18 tc about_title">{$CATEGORYS[$catid][catname]}</div>
+        <div class="clearfix da_swrap">
+            <ul class="fl da_nav">
+                {pc:content action="category" catid="$catid" num="25" siteid="$siteid" order="listorder ASC"}
+                {php $i=0;}
+                    {loop $data $r}
+                    {php $i++}
+                        {if $i ==1 }
+                        <li class="active">{$r[catname]}</li>
+                        {else}
+                         <li>{$r[catname]}</li>
+                        {/if}
+                    {/loop}
+                {/pc}
+            </ul>
+        
+            <ul class="da_table fl">
+                <li class="active">
+                    {pc:content action="lists" catid="40" num="5" siteid="$siteid" moreinfo="1" order="id DESC" page="$page"}
+                        {loop $data $r}
+                            <div class="da_sw">
+                                <div class="da_title tc rel"><span>{$r[title]} {$r[en_title]}</span> <span class="da_sti fr">{$r[zhuanye]}</span></div>
+                                <div class="da_text">
+                                    <p class=""> {$r[description]}</p>
+                                    <div class="da_btn">收起</div>
+                                </div>
+                            </div>
+                        {/loop}
+                    {/pc}
+                    <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=40">更多</a></div>
+                </li>
+                <li class="">
+                    {pc:content action="lists" catid="41" num="5" siteid="$siteid" moreinfo="1" order="id DESC"}
+                        {loop $data $r}
+                            <div class="da_sw">
+                                <div class="da_title tc rel"><span>{$r[title]} {$r[en_title]}</span> <span class="da_sti fr">{$r[zhuanye]}</span></div>
+                                <div class="da_text">
+                                    <p class=""> {$r[description]}</p>
+                                    <div class="da_btn">收起</div>
+                                </div>
+                            </div>
+                        {/loop}
+                    {/pc}
+                <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=41">更多</a></div>
+                </li>
+                <li class="">
+                    {pc:content action="lists" catid="42" num="5" siteid="$siteid" moreinfo="1" order="id DESC"}
+                        {loop $data $r}
+                            <div class="da_sw">
+                                <div class="da_title tc rel"><span>{$r[title]} {$r[en_title]}</span> <span class="da_sti fr">{$r[zhuanye]}</span></div>
+                                <div class="da_text">
+                                    <p class=""> {$r[description]}</p>
+                                    <div class="da_btn">收起</div>
+                                </div>
+                            </div>
+                        {/loop}
+                    {/pc}
+                     <div class="da_btn"><a href="/index.php?m=content&c=index&a=lists&catid=42">更多</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript" src="{JS_PATH}index_1.js"></script>
+    <script>
+        $(".da_title").click(function(){
+            $(this).siblings(".da_text").fadeIn();
+        })
+        $(".da_btn").click(function(){
+            $(this).parent(".da_text").fadeOut(100);
+        })
+        $(".da_nav li").click(function(){
+            var i = $(this).index();
+            $(this).addClass("active").siblings("li").removeClass("active");
+            $(".da_table li").eq(i).addClass("active").siblings("li").removeClass("active");
+        })
+    </script>
+{template "content","footer"}
